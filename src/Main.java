@@ -1,17 +1,19 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		Class.forName("org.h2.Driver");
-		// 接続先DBを指定する
-		String dburl = "jdbc:h2:~/test";
-		String sql = "INSERT INTO EMPLOYEES(name) VALUES('aoki')";
-		// DBに接続する
-		Connection conn = DriverManager.getConnection(dburl);
-		// SQLを送信
-		conn.createStatement().executeUpdate(sql);
-		// DB接続を閉じる
-		conn.close();
+		JFrame frame = new JFrame("初めてのGUI");
+		JLabel label = new JLabel("Hello World!!");
+		JButton button = new JButton("押してね");
+		frame.getContentPane().setLayout(new FlowLayout());
+		frame.getContentPane().add(label);
+		frame.getContentPane().add(button);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300, 100);
+		frame.setVisible(true);
 	}
 }
